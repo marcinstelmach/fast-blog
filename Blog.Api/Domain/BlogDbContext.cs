@@ -11,5 +11,10 @@ namespace Blog.Api.Domain
         }
 
         public DbSet<Article> Articles { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new ArticleConfiguration());
+        }
     }
 }
