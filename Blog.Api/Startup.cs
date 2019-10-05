@@ -1,4 +1,5 @@
 using Blog.Api.Domain;
+using Blog.Api.Domain.Repositories;
 using Blog.Api.Options;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,7 @@ namespace Blog.Api
             services.AddControllers();
             services.AddApplicationOptions(Configuration);
             services.AddBlogContext();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
