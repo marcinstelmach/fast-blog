@@ -1,6 +1,7 @@
 using Blog.Api.Domain;
 using Blog.Api.Domain.Repositories;
 using Blog.Api.Options;
+using Blog.SearchEngine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,9 @@ namespace Blog.Api
             services.AddApplicationOptions(Configuration);
             services.AddBlogContext();
             services.AddScoped<IArticleRepository, ArticleRepository>();
+
+            services.AddElasticSearchOptions(Configuration);
+            services.AddElasticSearchClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
