@@ -1,5 +1,7 @@
+using AutoMapper;
 using Blog.Api.Domain;
 using Blog.Api.Domain.Repositories;
+using Blog.Api.Mapper;
 using Blog.Api.Options;
 using Blog.SearchEngine;
 using Microsoft.AspNetCore.Builder;
@@ -29,6 +31,7 @@ namespace Blog.Api
 
             services.AddElasticSearchOptions(Configuration);
             services.AddElasticSearchClient();
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
